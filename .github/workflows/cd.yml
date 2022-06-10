@@ -8,16 +8,9 @@ jobs:
     name: Github Actions
     runs-on: ubuntu-20.04
     steps:
-      - name: Checkout
+      - name: Checkout Actions
         uses: actions/checkout@v2
       - name: Run Test
         run: docker-compose run --rm app sh -c "python manage.py test"
-
-  lint:
-    name: Linting Code
-    runs-on: ubuntu-20.04
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
       - name: Lint Testing
         run: docker-compose run --rm app sh -c "flake8"
