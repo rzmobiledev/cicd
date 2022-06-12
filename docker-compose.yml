@@ -23,6 +23,7 @@ services:
 
   db:
     image: postgres:alpine3.15
+    restart: always
     volumes:
       - dev-database:/var/lib/postgresql/data
     environment:

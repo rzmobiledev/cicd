@@ -20,6 +20,6 @@ class Command(BaseCommand):
                 wakeup_db = True
 
             except(Psycopg2Error, OperationalError):
-                self.stdout.write('Waiting for 2 second...')
-                time.sleep(2)
+                self.stdout.write('Waiting for 1 second...')
+                time.sleep(1)
         self.stdout.write(self.style.SUCCESS('YOUR DATABASE IS READY!'))
