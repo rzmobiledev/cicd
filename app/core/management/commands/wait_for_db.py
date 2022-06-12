@@ -23,5 +23,4 @@ class Command(BaseCommand):
             except(Psycopg2Error, OperationalError):
                 self.stdout.write('Waiting for 1 second...')
                 time.sleep(1)
-
-            self.stdout.write(self.style.SUCCESS('YOUR DATABASE IS READY!'))
+        self.stdout.write(self.style.SUCCESS('YOUR DATABASE IS READY!'))
