@@ -14,23 +14,27 @@ RUN python -m venv /env && \
     /env/bin/pip install --upgrade pip && \
     apk add --update --no-cache postgresql-client && \
     apk add --update --no-cache --virtual .tmp-build-deps \
-    build-base postgresql-dev musl-dev && \
+        build-base postgresql-dev musl-dev && \
     /env/bin/pip install -r /tmp/requirements.txt && \
     if [ $DEV = "true" ]; \
         then /env/bin/pip install -r /tmp/requirements.dev.txt; \
     fi && \
     rm -rf /tmp && apk del .tmp-build-deps && \
-    chmod -R +x /scripts && \
     adduser \
         --disabled-password \
         --no-create-home \
-        rizal
+        rizal && \
+    mkdir -p /vol/web/static && \
+    mkdir -p /vol/web/media && \
+    chown -R rizal:rizal /vol && \
+    chmod -R +x /scripts
 
-ENV PATH="/env/bin:$PATH"
+
+ENV PATH="/scripts:/env/bin:$PATH"
 
 USER rizal
 
-# CMD [ "executable.sh" ]
+CMD [ "executable.sh" ]
 
 
 

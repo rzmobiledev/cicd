@@ -7,10 +7,13 @@ services:
       args:
         - DEV=true
     ports:
-      - '8000:8000'
+      - '80:8000'
     volumes:
       - ./app:/app
+      - ./data:/vol/web
     environment:
+      - SECRET_KEY=devsecretkey
+      - DEBUG=1
       - DB_HOST=db
       - DB_NAME=devdb
       - DB_USER=devuser
