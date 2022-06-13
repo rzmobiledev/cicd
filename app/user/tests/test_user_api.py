@@ -30,10 +30,10 @@ class UserAPITest(TestCase):
     def test_create_user(self):
         """Test Create user."""
         payload = {
-            'email':'test@example.com',
-            'password':'test123',
-            'first_name':'rizal',
-            'last_name':'safril'
+            'email': 'test@example.com',
+            'password': 'test123',
+            'first_name': 'rizal',
+            'last_name': 'safril'
         }
         res = self.client.post(CREATE_USER_URL, payload)
         self.assertEqual(res.status_code, status.HTTP_201_CREATED)

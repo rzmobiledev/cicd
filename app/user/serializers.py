@@ -36,9 +36,9 @@ class AuthTokenSerializer(serializers.ModelSerializer):
     email = serializers.EmailField()
     password = serializers.CharField(
         style={
-            'input_type':'password'
+            'input_type': 'password'
         },
-        trim_whitespace = False,
+        trim_whitespace=False,
     )
 
     def validate(self, attrs):
@@ -53,7 +53,8 @@ class AuthTokenSerializer(serializers.ModelSerializer):
         print(attrs)
         if not user:
             msg = _(
-                'Sorry..We are unable to authenticate your with your credential'
+                'Sorry..We are unable to authenticate \n'
+                'your with your credential'
             )
             raise serializers.ValidationError(msg, code='authorization')
 
