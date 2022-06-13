@@ -14,10 +14,11 @@ def create_user(**params):
     return get_user_model().objects.create_user(**params)
 
 def create_attachment(user, **params):
+
     """Create and return  a sample attachment."""
     data = {
         'title':'Tes upload',
-        'attachment': ''
+        'attachment':''
     }
 
     data.update(params)
@@ -45,4 +46,3 @@ class RejectIfNotAuthorized(TestCase):
     def test_to_reject_if_not_authorized(self):
         res = self.client.get(ATTACHMENT_URL)
         self.assertEqual(res.status_code, status.HTTP_401_UNAUTHORIZED)
-

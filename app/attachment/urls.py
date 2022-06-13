@@ -14,4 +14,3 @@ app_name = 'attachment'
 urlpatterns = [
     path('', include(router.urls)),
 ]
-

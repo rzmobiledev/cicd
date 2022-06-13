@@ -22,14 +22,14 @@ class Manager(UserManager):
         return user
 
     def create_user(self, email, password):
-        user =  self._create_user(email, password)
+        user = self._create_user(email, password)
         user.is_superuser = False
         user.is_staff = True
         user.save(using=self._db)
         return user
 
     def create_superuser(self, email, password):
-        user =  self._create_user(email, password)
+        user = self._create_user(email, password)
         user.is_superuser = True
         user.is_staff = True
         user.save(using=self._db)
@@ -44,7 +44,9 @@ class User(AbstractBaseUser, PermissionsMixin):
     is_staff = models.BooleanField(
         _('staff status'),
         default=False,
-        help_text=_('Designates whether the user can log into this admin site.'),
+        help_text=_(
+            'Designates whether the user can log into this admin site.'
+        ),
     )
     is_active = models.BooleanField(
         _('active'),
@@ -66,7 +68,6 @@ class Attachment(models.Model):
     title = models.TextField(max_length=200)
     attachment = models.FileField()
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-
 
     def __str__(self):
         return self.title
