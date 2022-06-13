@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'user',
     'attachment',
     'rest_framework',
+    'rest_framework.authtoken',
 ]
 
 MIDDLEWARE = [
