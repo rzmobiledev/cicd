@@ -14,6 +14,7 @@ def create_user(**params):
     return get_user_model().objects.create_user(**params)
 
 def create_attachment(user, **params):
+
     """Create and return  a sample attachment."""
 
     data = {
