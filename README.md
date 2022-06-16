@@ -1,2 +1,2 @@
 # cicd
-Test CI/CD gitlab
+Test CI/CD gitlab for deployment
